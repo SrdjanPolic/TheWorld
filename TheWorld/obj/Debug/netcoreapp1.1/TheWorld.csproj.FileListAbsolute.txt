@@ -1,0 +1,9 @@
+C:\ASP Core\examples\TheWorld\TheWorld\bin\Debug\netcoreapp1.1\TheWorld.deps.json
+C:\ASP Core\examples\TheWorld\TheWorld\bin\Debug\netcoreapp1.1\TheWorld.runtimeconfig.json
+C:\ASP Core\examples\TheWorld\TheWorld\bin\Debug\netcoreapp1.1\TheWorld.runtimeconfig.dev.json
+C:\ASP Core\examples\TheWorld\TheWorld\bin\Debug\netcoreapp1.1\TheWorld.dll
+C:\ASP Core\examples\TheWorld\TheWorld\bin\Debug\netcoreapp1.1\TheWorld.pdb
+C:\ASP Core\examples\TheWorld\TheWorld\obj\Debug\netcoreapp1.1\TheWorld.csprojResolveAssemblyReference.cache
+C:\ASP Core\examples\TheWorld\TheWorld\obj\Debug\netcoreapp1.1\TheWorld.AssemblyInfo.cs
+C:\ASP Core\examples\TheWorld\TheWorld\obj\Debug\netcoreapp1.1\TheWorld.dll
+C:\ASP Core\examples\TheWorld\TheWorld\obj\Debug\netcoreapp1.1\TheWorld.pdb
