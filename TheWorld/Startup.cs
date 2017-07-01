@@ -7,19 +7,22 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using TheWorld.Services;
 
 namespace TheWorld
 {
     public class Startup
     {
+        IHostingEnvironment _env;
         public Startup(IHostingEnvironment env)
         {
+            _env = env;
             var builder = new ConfigurationBuilder()
                 .SetBasePath(env.ContentRootPath)
                 .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
                 .AddEnvironmentVariables();
-            Configuration = builder.Build();
+            Configuration = builder.Build(); 
         }
 
         public IConfigurationRoot Configuration { get; }
@@ -27,6 +30,12 @@ namespace TheWorld
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSingleton(Configuration);
+
+            if (_env.IsEnvironment("Development") || _env.IsEnvironment("Testing"))
+            {
+                services.AddScoped<IMailService, DebugMailService>();
+            }
             // Add framework services.
             services.AddMvc();
         }
@@ -47,14 +56,16 @@ namespace TheWorld
                 app.UseExceptionHandler("/Home/Error");
             }
 
-            app.UseDefaultFiles();
             app.UseStaticFiles();
 
             app.UseMvc(routes =>
             {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+            routes.MapRoute(
+                name: "default",
+                template: "{controller}/{action}/{id?}",
+                defaults: new { controller = "App", action = "Index" }
+                    );
+                    
             });
         }
     }
