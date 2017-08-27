@@ -23,18 +23,23 @@
     //});
 
     var $sideBarAndWrapper = $("#sidebar,#wrapper");
+    var $icon = $("#sidebarToggle i.fa");
 
     var sidebarToggle = $("#sidebarToggle");
     sidebarToggle.on("click", function () {
 
-        console.log(1);
+        
         $sideBarAndWrapper.toggleClass("hide-sidebar");
         if ($sideBarAndWrapper.hasClass("hide-sidebar")) {
-            $(this).text("Show sidebar");
+            console.log(1);
+            $icon.removeClass("fa-angle-left");
+            $icon.addClass("fa-angle-right");
         }
         else
         {
-            $(this).text("Hide sidebar");
+            console.log(1);
+            $icon.addClass("fa-angle-left");
+            $icon.removeClass("fa-angle-right");
         }
        
     });
